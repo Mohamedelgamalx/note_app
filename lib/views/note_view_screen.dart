@@ -9,7 +9,12 @@ class NoteViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
-        showModalBottomSheet(context: context, builder: (context) {
+        showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24)
+          ),
+            context: context, 
+            builder: (context) {
           return const AddNoteBottomSheet();
         });
       },
