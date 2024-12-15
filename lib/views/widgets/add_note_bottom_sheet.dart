@@ -1,35 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/views/constants.dart';
+import 'package:note_app/views/widgets/custom_text_field.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
+    return const Padding(
+      padding: EdgeInsets.all(16),
       child: Column(
         children: [
-          const SizedBox(height: 32),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Title',
-              hintStyle: const TextStyle(color: kPrimaryColor),
-              border: buildBorder(),
-              enabledBorder: buildBorder(),
-              focusedBorder: buildBorder(kPrimaryColor)
-            ),
-          )
+          SizedBox(height: 32),
+          CustomTextField(hintName: 'Title'),
+          SizedBox(height: 18,),
+          CustomTextField(hintName: 'Content', maxLines: 5,),
         ],
       ),
     );
   }
-
-  OutlineInputBorder buildBorder ([color]) {
-    return OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24),
-            borderSide: BorderSide(
-                color: color ?? Colors.white),
-          );
-  }
 }
+
+
+
